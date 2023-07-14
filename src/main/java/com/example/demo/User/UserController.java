@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/v1/users")
 public class UserController {
     private final UserService userService;
 
@@ -21,9 +21,9 @@ public class UserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public List<UserEntity> getAllUsers() {
-        return userService.getAllUsers();
+    @GetMapping("/test")
+    public ResponseEntity<String> sayHello() {
+        return ResponseEntity.ok("Hello");
     }
-    // Các endpoint khác liên quan đến User
+
 }
